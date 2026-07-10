@@ -1,6 +1,7 @@
 name: Test Runner
 on: workflow_dispatch
 jobs:
+  # Determine runner with runner's labels which must be matched to every label in specified runner
   test-runner:
     runs-on: 
       - self-hosted
@@ -8,4 +9,4 @@ jobs:
       - javascript
       
     steps:
-      - run: echo "Test echo in first github runner"
+      - run: ls -la
