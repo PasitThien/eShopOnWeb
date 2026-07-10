@@ -6,11 +6,13 @@ env:
   ACR_LOGIN_SERVER: aistraining.azurecr.io
   TAG_NAME: eshoponweb-user004:1.0.0
   IMAGE_NAME: ${{ vars.ACR_LOGIN_SERVER }}/${{ vars.TAG_NAME }}
-  RESOURCE_GROUP: rg-004
+  RESOURCE_GROUP: ais-training
   CLUSTER_NAME: aks-demo
 jobs:
   build-container:
+    if: false
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout source code
         uses: actions/checkout@v7.0.0
@@ -29,7 +31,7 @@ jobs:
           docker push ${{ env.ACR_LOGIN_SERVER }}/${{ env.TAG_NAME }}
   deploy-to-aks:
     runs-on: ubuntu-latest
-    needs: build-container
+    # needs: build-container
     steps:
       - uses: actions/checkout@v7.0.0
       - uses: azure/aks-set-context@v1
