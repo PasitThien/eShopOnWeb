@@ -1,0 +1,12 @@
+name: Test Runner
+on: workflow_dispatch
+jobs:
+  test-runner:
+    # Determine runner with runner's labels which must be matched to every label in specified runner
+    runs-on: 
+      - self-hosted
+      - docker
+      - javascript
+      
+    steps:
+      - run: echo "Test echo in first github runner"
