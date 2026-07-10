@@ -44,5 +44,6 @@ jobs:
           manifest: |
             .k8s/deployment.yaml
             .k8s/service.yaml
+          images: ${{ env.ACR_LOGIN_SERVER }}/${{ env.TAG_NAME }}
 
           
