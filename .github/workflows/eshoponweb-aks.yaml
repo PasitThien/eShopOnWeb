@@ -23,6 +23,7 @@ jobs:
       - name: Build and Push Image
         # Build images and store with ACR Server on Azure cloud serve
         run: |
+          cd dockerdeploydemo
           docker build ./src/Web/Dockerfile -t ${{ env.ACR_LOGIN_SERVER }}/${{ env.TAG_NAME }}
           docker push ${{ env.ACR_LOGIN_SERVER }}/${{ env.TAG_NAME }}
         
